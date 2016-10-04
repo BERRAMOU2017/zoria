@@ -9,7 +9,7 @@
 //
 
 
-$i = new FileSystemIterator(__DIR__, ,FileSystemIterator::SKIP_DOTS);
+$i = new FileSystemIterator(__DIR__, FileSystemIterator::SKIP_DOTS);
 
 foreach ($i as $f) {
 	if ($f->getFilename() !== 'loader.php') {
