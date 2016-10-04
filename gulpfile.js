@@ -24,7 +24,7 @@ const gulp = require('gulp'),
 gulp.task('sass', () => {
 	exec('rm -f public/css/*');
 
-	return gulp.src('./assets/sass/**/*.scss')
+	return gulp.src('./resources/assets/sass/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['> 5%'], cascade: false, }))
@@ -36,7 +36,7 @@ gulp.task('sass', () => {
 gulp.task('sass-prod', () => {
 	exec('rm -f public/css/*');
 
-	return gulp.src('./assets/sass/**/*.scss')
+	return gulp.src('./resources/assets/sass/**/*.scss')
 		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['> 5%'], cascade: false, }))
 		.pipe(rev())
@@ -61,7 +61,7 @@ gulp.task('sass-prod', () => {
 gulp.task('webpack', () => {
 	exec('rm -f ./public/js/*');
 
-	return gulp.src('./assets/es6/app.js')
+	return gulp.src('./resources/assets/es6/app.js')
 		.pipe(webpack(require('./webpack.conf.js')))
 		.pipe(rev())
 		.pipe(gulp.dest('./public/js'));
@@ -70,7 +70,7 @@ gulp.task('webpack', () => {
 gulp.task('webpack-prod', () => {
 	exec('rm -f ./public/js/*');
 
-	return gulp.src('./assets/es6/app.js')
+	return gulp.src('./resources/assets/es6/app.js')
 		.pipe(webpack(require('./webpack-prod.conf.js')))
 		.pipe(rev())
 		.pipe(gulp.dest('./public/js'));
@@ -103,6 +103,6 @@ gulp.task('prod', ['sass-prod', 'webpack-prod']);
 //                                                     
 
 gulp.task('default', () => {
-	gulp.watch('./assets/es6/**/*.js', ['webpack']);
-	gulp.watch('./assets/sass/**/*.scss', ['sass']);
+	gulp.watch('./resources/assets/es6/**/*.js', ['webpack']);
+	gulp.watch('./resources/assets/sass/**/*.scss', ['sass']);
 });
