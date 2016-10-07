@@ -18,8 +18,7 @@ if (!function_exists('render')) {
 		$loader = new Twig_Loader_Filesystem(__DIR__ . '/../resources/views');
 		$twig = new Twig_Environment($loader, [ 'cache' => __DIR__ . '/../storage/views' ]);
 
-		$class = 'App\Data\\' . ucfirst($view) . 'Data';
-		$viewData = new $class();
+		$viewData = instance('App\Data\\' . ucfirst($view) . 'Data');
 	
 		echo $twig->render($view . '.twig', $viewData->get());
 	}

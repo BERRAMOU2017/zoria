@@ -1,6 +1,8 @@
 {
     "require": {
-        "twig/twig": "^1.26"
+        "twig/twig": "^1.26",
+        "vlucas/phpdotenv": "^2.4",
+        "symfony/dependency-injection": "^3.1"
     },
 	"autoload": {
 		"psr-4": {

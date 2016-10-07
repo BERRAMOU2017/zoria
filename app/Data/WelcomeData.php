@@ -4,17 +4,28 @@
 namespace App\Data;
 
 
+use App\Services\Mailer;
+use App\Services\NewsletterManager;
+
+
 class WelcomeData
 {
+	protected $mailer;
+
+	public function __construct(Mailer $mailer, NewsletterManager $nm)
+	{
+		$this->mailer = $mailer;
+	}
+
 	/**
 	 * Get data associated with welcome.twig view
 	 *
 	 * @return array
 	 */
-	public static function get()
+	public function get()
 	{
 		return [
-			'name' => 'oussama',
+			'name' => $this->mailer->send(),
 		];
 	}
 }
