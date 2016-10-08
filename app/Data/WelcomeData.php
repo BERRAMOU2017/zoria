@@ -4,17 +4,22 @@
 namespace App\Data;
 
 
-use App\Services\Mailer;
+use App\Services\Quote;
 use App\Services\NewsletterManager;
 
 
 class WelcomeData
 {
-	protected $mailer;
+	protected $quote;
 
-	public function __construct(Mailer $mailer, NewsletterManager $nm)
+	/**
+	 * Initialize WelcomeData.
+	 *
+	 * @param Quote	$quote
+	 */
+	public function __construct(Quote $quote)
 	{
-		$this->mailer = $mailer;
+		$this->quote = $quote;
 	}
 
 	/**
@@ -25,7 +30,7 @@ class WelcomeData
 	public function get()
 	{
 		return [
-			'name' => $this->mailer->send(),
+			'quote' => $this->quote->random(),
 		];
 	}
 }

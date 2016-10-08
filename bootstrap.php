@@ -12,6 +12,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 
+use Zoria\Framework\Route;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 
@@ -28,5 +29,9 @@ foreach ($providers as $provider) {
 	$provider->register();
 }
 
+$routes = require_once __DIR__ . '/routes/web.php';
+$route = new Route($routes);
+$data = $route->getData();
+$params = $route->getParams();
 
-require_once __DIR__ . '/app/routes.php';
+render($data, $params, getenv('DEBUG'));
