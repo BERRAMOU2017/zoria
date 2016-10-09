@@ -3,7 +3,8 @@
     "require": {
         "vlucas/phpdotenv": "^2.4",
         "symfony/dependency-injection": "^3.1",
-		"zoria-php/framework": "0.1.*"
+		"zoria-php/framework": "^0.1.13",
+		"robmorgan/phinx": "^0.6.4"
     },
 	"autoload": {
 		"psr-4": {

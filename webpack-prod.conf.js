@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
-	entry: './assets/es6/app.js',
+	entry: './resources/assets/es6/app.js',
 	output: {
 		filename: 'app.js',
 	},
