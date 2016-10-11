@@ -5,7 +5,6 @@ namespace App\Data;
 
 
 use App\Services\Quote;
-use App\Services\NewsletterManager;
 
 
 class WelcomeData
